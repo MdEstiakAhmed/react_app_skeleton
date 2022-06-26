@@ -7,8 +7,7 @@ const AppInstance = axios.create({
 
 export const getData = async (url, headers) => {
     try {
-        const response = await AppInstance.get(url, { headers });
-        return response.data;
+        return (await AppInstance.get(url, { headers })).data;
     }
     catch (error) {
         return { Error: error.message };
@@ -17,8 +16,7 @@ export const getData = async (url, headers) => {
 
 export const postData = async (url, headers, formData) => {
     try {
-        const response = await AppInstance.post(url, formData, { headers });
-        return response.data;
+        return (await AppInstance.post(url, formData, { headers })).data;
     }
     catch (error) {
         return { Error: error.message };
